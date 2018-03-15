@@ -107,7 +107,7 @@ Each property in the response body is defined as follows:
         assertNotNull("Result does not exist",
                 result);
         assertEquals("Response body does not match exactly",
-                "{\"carrier\":{\"name\":\"AU Landline Carrier\"},\"countryCode\":\"AU\",\"phoneNumber\":\"+61491570156\",\"type\":\"MOBILE\"}", 
+                "\"countryCode\":\"AU\",\"phoneNumber\":\"+61491570156\",\"type\":\"MOBILE\",{\"carrier\":{\"name\":\"AU Landline Carrier\"}}", 
                 TestHelper.convertStreamToString(httpResponse.getResponse().getRawBody()));
     }
 
