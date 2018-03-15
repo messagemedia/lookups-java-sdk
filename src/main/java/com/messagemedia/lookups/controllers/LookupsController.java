@@ -144,7 +144,7 @@ public class LookupsController extends BaseController {
         Map<String, String> _headers = new HashMap<String, String>() {
             private static final long serialVersionUID = 4671008517157046201L;
             {
-                    put( "user-agent", "messagemedia-lookups" );
+                    put( "user-agent", "messagemedia-lookups-java-sdk-1.0.0" );
                     put( "accept", "application/json" );
             }
         };
