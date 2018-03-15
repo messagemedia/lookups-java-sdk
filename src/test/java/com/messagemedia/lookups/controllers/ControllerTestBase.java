@@ -10,6 +10,7 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.rules.Timeout;
 
+import com.messagemedia.lookups.Configuration;
 import com.messagemedia.lookups.MessageMediaLookupsClient;
 import com.messagemedia.lookups.testing.HttpCallBackCatcher;
 
