@@ -18,4 +18,10 @@ public class Configuration {
     //TODO: Replace the basicAuthPassword with an appropriate value
     public static String basicAuthPassword = "TODO: Replace";
 
+    //The username to use with HMAC authentication
+    public static String hmacAuthUserName = "";
+
+    //The password to use with HMAC authentication
+    public static String hmacAuthPassword = "";
+
 }
