@@ -1,7 +1,5 @@
 /*
  * MessageMediaLookups
- *
- * This file was automatically generated for MessageMedia by APIMATIC v2.0 ( https://apimatic.io ).
  */
 package com.messagemedia.lookups.testing;
 
@@ -18,7 +16,7 @@ public class HttpCallBackCatcher extends SynchronousBase implements HttpCallBack
 
     private HttpRequest request;
     private HttpResponse response;
-    
+
     /**
      * Call back executed before the HTTP request is sent
      */
@@ -37,7 +35,7 @@ public class HttpCallBackCatcher extends SynchronousBase implements HttpCallBack
     }
 
     /**
-     * Get the HTTP Request object associated with this API call 
+     * Get the HTTP Request object associated with this API call
      * @return
      */
     public HttpRequest getRequest() {

@@ -1,8 +1,6 @@
 /*
  * MessageMediaLookups
- *
- * This file was automatically generated for MessageMedia by APIMATIC v2.0 ( https://apimatic.io ).
- */
+*/
 package com.messagemedia.lookups.controllers.syncwrapper;
 
 import java.util.concurrent.CountDownLatch;
@@ -12,9 +10,9 @@ import java.util.concurrent.TimeUnit;
  * Base class to help convert an asynchronous callback to synchronous one
  */
 public class SynchronousBase {
-    
+
     private CountDownLatch lock;
-    
+
     /**
      * Initiate class with a task count
      * @param count Number of tasks we will wait on
@@ -22,7 +20,7 @@ public class SynchronousBase {
     public SynchronousBase(int count) {
         this.lock = new CountDownLatch(count);
     }
-    
+
     /**
      * Initiate class with a count down of one only
      */
@@ -37,7 +35,7 @@ public class SynchronousBase {
     {
         lock.countDown();
     }
-    
+
     /**
      * Wait until all tasks are marked as done
      * @throws InterruptedException
@@ -45,7 +43,7 @@ public class SynchronousBase {
     public void await() throws InterruptedException {
         lock.await();
     }
-    
+
     /**
      * Wait until all tasks are marked as done or timeout after given time
      * @param timeout Time to wait
@@ -57,6 +55,5 @@ public class SynchronousBase {
         boolean t = lock.await(timeout, unit);
         return t;
     }
-    
-}
 
+}

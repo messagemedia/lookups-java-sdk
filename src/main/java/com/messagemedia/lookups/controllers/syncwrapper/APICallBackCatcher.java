@@ -1,7 +1,5 @@
 /*
  * MessageMediaLookups
- *
- * This file was automatically generated for MessageMedia by APIMATIC v2.0 ( https://apimatic.io ).
  */
 package com.messagemedia.lookups.controllers.syncwrapper;
 
@@ -13,13 +11,13 @@ import com.messagemedia.lookups.http.client.HttpContext;
  *
  * An instance of this class can be passed to an API call as the APICallBack
  * instance to capture the results of that call. Call await() to block until
- * completion of the API call. Trying to get results of API call before 
+ * completion of the API call. Trying to get results of API call before
  * calling wait() will also block.
- *  
+ *
  * @param <T> Type of the response object
  */
 public class APICallBackCatcher<T> extends SynchronousBase implements APICallBack<T> {
-    
+
     private T result = null;
     private Throwable error = null;
     private boolean success = false;
@@ -28,7 +26,7 @@ public class APICallBackCatcher<T> extends SynchronousBase implements APICallBac
      * Get the result from the API callback.
      * Blocks if API call is not complete yet.
      * @return
-     * @throws Throwable 
+     * @throws Throwable
      */
     public T getResult() throws Throwable {
         await();
@@ -47,7 +45,7 @@ public class APICallBackCatcher<T> extends SynchronousBase implements APICallBac
      * Get the exception object thrown by this API callback if any.
      * Blocks if API call is not complete yet.
      * @return
-     * @throws InterruptedException 
+     * @throws InterruptedException
      */
     public Throwable getError() throws InterruptedException {
         await();
@@ -66,7 +64,7 @@ public class APICallBackCatcher<T> extends SynchronousBase implements APICallBac
      * Was the API call successful?
      * Blocks if API call is not complete yet.
      * @return
-     * @throws InterruptedException 
+     * @throws InterruptedException
      */
     public boolean isSuccess() throws InterruptedException {
         await();
@@ -101,4 +99,3 @@ public class APICallBackCatcher<T> extends SynchronousBase implements APICallBac
         markAsDone();
     }
 }
-

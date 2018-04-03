@@ -1,7 +1,5 @@
 /*
  * MessageMediaLookups
- *
- * This file was automatically generated for MessageMedia by APIMATIC v2.0 ( https://apimatic.io ).
  */
 package com.messagemedia.lookups.controllers;
 
@@ -24,26 +22,26 @@ public class ControllerTestBase {
     public final static int REQUEST_TIMEOUT = 30;
 
     public final static double ASSERT_PRECISION = 0.01;
-    
+
     /**
      * Global rules for tests
      */
     @Rule
     public Timeout globalTimeout = Timeout.seconds(REQUEST_TIMEOUT);
-    
+
     /**
      * Test fixtures
      */
-    
+
     // Used to serve as HttpCallBack and to capture request & response
     protected HttpCallBackCatcher httpResponse = new HttpCallBackCatcher();
-    
+
     /**
      * Setup test
      */
     @Before
     public void setUp() throws Exception {
-        httpResponse = new HttpCallBackCatcher(); 
+        httpResponse = new HttpCallBackCatcher();
         Configuration.basicAuthUserName = System.getenv("MessageMediaApiTestsKey");
         Configuration.basicAuthPassword = System.getenv("MessageMediaApiTestsSecret");
     }
@@ -57,11 +55,11 @@ public class ControllerTestBase {
             httpResponse.getResponse().shutdown();
         httpResponse = null;
     }
-    
+
     // Singleton instance of client for all test classes
     private static MessageMediaLookupsClient client;
     private static Object clientSync = new Object();
-    
+
     /**
      * Get client instance
      * @return

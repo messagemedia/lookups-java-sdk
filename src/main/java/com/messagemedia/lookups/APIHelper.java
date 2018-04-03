@@ -1,7 +1,5 @@
 /*
  * MessageMediaLookups
- *
- * This file was automatically generated for MessageMedia by APIMATIC v2.0 ( https://apimatic.io ).
  */
 package com.messagemedia.lookups;
 
@@ -19,7 +17,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
- 
+
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.core.JsonParser;
@@ -33,7 +31,7 @@ public class APIHelper {
     /* used for async execution of API calls using a thread pool */
     private static ExecutorService scheduler = null;
     private static Object syncRoot = new Object();
-  
+
     /**
      * Singleton access to the threadpool scheduler
      */
@@ -132,7 +130,7 @@ public class APIHelper {
         if (isNullOrWhiteSpace(json))
             return null;
 
-        TypeReference<LinkedHashMap<String,Object>> typeRef 
+        TypeReference<LinkedHashMap<String,Object>> typeRef
             = new TypeReference<LinkedHashMap<String,Object>>() {};
         return deserialize(json, typeRef);
     }
@@ -216,7 +214,7 @@ public class APIHelper {
      */
     public static void replaceAll(StringBuilder stringBuilder, String toReplace, String replaceWith) {
         int index = stringBuilder.indexOf(toReplace);
-        
+
         while (index != -1) {
             stringBuilder.replace(index, index + toReplace.length(), replaceWith);
             index += replaceWith.length(); // Move to the end of the replacement
@@ -289,7 +287,7 @@ public class APIHelper {
             boolean hasParam = false;
 
 			List<String> arrays = new ArrayList<String>();
-                        
+
             for (SimpleEntry<String, Object> pair : objectList) {
                 String paramKeyValPair;
                 String accessor = pair.getKey();
@@ -385,7 +383,7 @@ public class APIHelper {
             //process array
             if((objName == null) ||(objName.isEmpty()))
                 throw new InvalidObjectException("Object name cannot be empty");
-            
+
             Collection<?> array = (Collection<?>) obj;
             //append all elements in the array into a string
             int index = 0;

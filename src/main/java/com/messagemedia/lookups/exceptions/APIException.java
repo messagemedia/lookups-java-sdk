@@ -1,8 +1,6 @@
 /*
  * MessageMediaLookups
- *
- * This file was automatically generated for MessageMedia by APIMATIC v2.0 ( https://apimatic.io ).
- */
+*/
 package com.messagemedia.lookups.exceptions;
 
 import java.io.IOException;
@@ -58,7 +56,7 @@ public class APIException extends Exception {
             || (context.getResponse().getRawBody() == null))
             return;
 
-        try {            
+        try {
             String response_body = ((HttpStringResponse)context.getResponse()).getBody();
             APIHelper.populate(response_body, this);
         } catch (IOException ioException) { }

@@ -1,7 +1,5 @@
 /*
  * MessageMediaLookups
- *
- * This file was automatically generated for MessageMedia by APIMATIC v2.0 ( https://apimatic.io ).
  */
 package com.messagemedia.lookups.controllers;
 
@@ -24,12 +22,12 @@ import com.messagemedia.lookups.controllers.LookupsController;
 import com.fasterxml.jackson.core.type.TypeReference;
 
 public class LookupsControllerTest extends ControllerTestBase {
-    
+
     /**
      * Controller instance (for all tests)
      */
     private static LookupsController controller;
-    
+
     /**
      * Setup test class
      */
@@ -90,24 +88,24 @@ Each property in the response body is defined as follows:
         } catch(APIException e) {};
 
        // Test whether the response is null
-        assertNotNull("Response is null", 
+        assertNotNull("Response is null",
                 httpResponse.getResponse());
         // Test response code
-        assertEquals("Status is not 200", 
+        assertEquals("Status is not 200",
                 200, httpResponse.getResponse().getStatusCode());
 
         // Test headers
         Map<String, String> headers = new LinkedHashMap<String, String>();
         headers.put("Content-Type", TestHelper.nullString);
-        
+
         assertTrue("Headers do not match", TestHelper.areHeadersProperSubsetOf(
                 headers, httpResponse.getResponse().getHeaders(), true));
 
         // Test whether the captured response is as we expected
-        assertNotNull("Result does not exist", 
+        assertNotNull("Result does not exist",
                 result);
         assertEquals("Response body does not match exactly",
-                "{\"carrier\":{\"name\":\"AU Landline Carrier\"},\"country_code\":\"AU\",\"phone_number\":\"+61491570156\",\"type\":\"MOBILE\"}", 
+                "{\"carrier\":{\"name\":\"AU Landline Carrier\"},\"country_code\":\"AU\",\"phone_number\":\"+61491570156\",\"type\":\"MOBILE\"}",
                 TestHelper.convertStreamToString(httpResponse.getResponse().getRawBody()));
     }
 

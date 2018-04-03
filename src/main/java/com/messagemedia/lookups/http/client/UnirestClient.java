@@ -1,7 +1,5 @@
 /*
  * MessageMediaLookups
- *
- * This file was automatically generated for MessageMedia by APIMATIC v2.0 ( https://apimatic.io ).
  */
 package com.messagemedia.lookups.http.client;
 
@@ -86,7 +84,7 @@ public class UnirestClient implements HttpClient {
 
     /**
      * Execute a given HttpRequest to get binary response back
-     * @param   request     The given HttpRequest to execute     
+     * @param   request     The given HttpRequest to execute
      */
     public HttpResponse executeAsBinary(final HttpRequest request) throws APIException {
         com.mashape.unirest.request.HttpRequest uniRequest = UnirestClient.convertRequest(request);
@@ -101,7 +99,7 @@ public class UnirestClient implements HttpClient {
 
     /**
      * Execute a given HttpRequest to get string response back
-     * @param   request     The given HttpRequest to execute     
+     * @param   request     The given HttpRequest to execute
      */
     public HttpResponse executeAsString(final HttpRequest request) throws APIException {
         com.mashape.unirest.request.HttpRequest uniRequest = UnirestClient.convertRequest(request);
@@ -129,7 +127,7 @@ public class UnirestClient implements HttpClient {
 
         //if there are no errors, try to convert to our internal format
         if(uniException == null && httpResponse != null)
-        {            
+        {
             completionBlock.onSuccess(context, httpResponse);
         }
         else
@@ -192,14 +190,14 @@ public class UnirestClient implements HttpClient {
             uniRequest.fields(request.getParameters());
         }
 
-        //set request headers        
+        //set request headers
         uniRequest.headers(request.getHeaders());
-        
+
         //set json header if needed
         if(request instanceof HttpBodyRequest) {
             if (!uniRequest.getHeaders().containsKey("content-type"))
                 uniRequest.header("content-type", "application/json; charset=UTF-8");
-        } 
+        }
 
         //set basic auth credentials if needed
         if((null != request.getUsername()) && (!request.getUsername().isEmpty()))

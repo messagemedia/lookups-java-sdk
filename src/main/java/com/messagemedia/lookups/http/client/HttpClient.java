@@ -1,8 +1,6 @@
 /*
  * MessageMediaLookups
- *
- * This file was automatically generated for MessageMedia by APIMATIC v2.0 ( https://apimatic.io ).
- */
+*/
 package com.messagemedia.lookups.http.client;
 
 import com.messagemedia.lookups.exceptions.APIException;
@@ -37,13 +35,13 @@ public interface HttpClient {
 
     /**
      * Execute a given HttpRequest to get binary response back
-     * @param   request     The given HttpRequest to execute     
+     * @param   request     The given HttpRequest to execute
      */
     public HttpResponse executeAsBinary(final HttpRequest request) throws APIException;
 
     /**
      * Execute a given HttpRequest to get string response back
-     * @param   request     The given HttpRequest to execute     
+     * @param   request     The given HttpRequest to execute
      */
     public HttpResponse executeAsString(final HttpRequest request) throws APIException;
 
