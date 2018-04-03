@@ -4,7 +4,7 @@
 
 The MessageMedia Lookups API provides a number of endpoints for validating the phone numbers you’re sending to by checking their validity, type and carrier records.
 
-## ⭐️ Install Manually
+## ⭐️ Install via Maven
 At present the jars are available from a public maven repository.
 
 Use the following dependency in your project to grab via Maven:
