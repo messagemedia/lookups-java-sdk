@@ -1,6 +1,6 @@
 # MessageMedia Lookups Java SDK
 [![Travis Build Status](https://travis-ci.org/messagemedia/lookups-java-sdk.svg?branch=master)](https://travis-ci.org/messagemedia/lookups-java-sdk)
-[![maven](https://img.shields.io/badge/maven-v1.0.0-blue.svg)](https://mvnrepository.com/artifact/com.messagemedia.sdk/lookups)
+[![maven](https://img.shields.io/maven-metadata/v/http/central.maven.org/maven2/com/messagemedia/sdk/lookups/maven-metadata.xml.svg)](https://mvnrepository.com/artifact/com.messagemedia.sdk/lookups)
 
 The MessageMedia Lookups API provides a number of endpoints for validating the phone numbers you’re sending to by checking their validity, type and carrier records.
 
