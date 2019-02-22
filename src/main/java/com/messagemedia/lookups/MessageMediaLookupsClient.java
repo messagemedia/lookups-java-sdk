@@ -43,11 +43,11 @@ public class MessageMediaLookupsClient {
     public MessageMediaLookupsClient(String authUserName, String authPassword, Boolean hmac) {
         this();
         if(hmac) {
-        	Configuration.basicAuthUserName = authUserName;
-            Configuration.basicAuthPassword = authPassword;
-        }else {
         	Configuration.hmacAuthUserName = authUserName;
             Configuration.hmacAuthPassword = authPassword;
+        }else {
+        	Configuration.basicAuthUserName = authUserName;
+            Configuration.basicAuthPassword = authPassword;
         }
     }
 }
