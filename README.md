@@ -89,8 +89,9 @@ public class Main {
     public static void main(String[] args) {
 	// write your code here
 
-        String basicAuthUserName = "YOUR_API_KEY"; // The username to use with basic authentication
-        String basicAuthPassword = "YOUR_API_SECRET"; // The password to use with basic authentication
+        String authUserName = "YOUR_API_KEY"; // The username to use with authentication
+        String authPassword = "YOUR_API_SECRET"; // The password to use with authentication
+	Boolean hmac = false; //set to true if using HMAC authentication
 
         MessageMediaLookupsClient client = new MessageMediaLookupsClient(basicAuthUserName, basicAuthPassword);
 
