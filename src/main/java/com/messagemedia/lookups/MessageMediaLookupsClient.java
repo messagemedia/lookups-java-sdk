@@ -46,8 +46,8 @@ public class MessageMediaLookupsClient {
         	Configuration.basicAuthUserName = authUserName;
             Configuration.basicAuthPassword = authPassword;
         }else {
-        	Configuration.basicAuthUserName = authUserName;
-            Configuration.basicAuthPassword = authPassword;
+        	Configuration.hmacAuthUserName = authUserName;
+            Configuration.hmacAuthPassword = authPassword;
         }
     }
 }
