@@ -88,7 +88,7 @@ public class LookupsController extends BaseController {
      */
     public LookupAPhoneNumberResponse getLookupAPhoneNumber(
                 final String phoneNumber,
-                final List<String> options
+                final String options
     ) throws Throwable {
         APICallBackCatcher<LookupAPhoneNumberResponse> callback = new APICallBackCatcher<LookupAPhoneNumberResponse>();
         getLookupAPhoneNumberAsync(phoneNumber, options, callback);
@@ -149,7 +149,7 @@ public class LookupsController extends BaseController {
      */
     public void getLookupAPhoneNumberAsync(
                 final String phoneNumber,
-                final List<String> options,
+                final String options,
                 final APICallBack<LookupAPhoneNumberResponse> callBack
     ) {
         Runnable _responseTask = new Runnable() {
