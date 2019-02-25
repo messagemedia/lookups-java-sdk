@@ -32,6 +32,27 @@ public class LookupAPhoneNumberResponseBuilder {
         lookupAPhoneNumberResponse.setCarrier(carrier);
         return this;
     }
+
+    public LookupAPhoneNumberResponseBuilder result(String result) {
+        lookupAPhoneNumberResponse.setResult(result);
+        return this;
+    }
+
+    /**
+     * A unique number identifying a GSM subscriber
+     */
+    public LookupAPhoneNumberResponseBuilder imsi(int imsi) {
+        lookupAPhoneNumberResponse.setImsi(imsi);
+        return this;
+    }
+
+    /**
+     * The location of the mobile number
+     */
+    public LookupAPhoneNumberResponseBuilder location(int location) {
+        lookupAPhoneNumberResponse.setLocation(location);
+        return this;
+    }
     /**
      * Build the instance with the given values
      */

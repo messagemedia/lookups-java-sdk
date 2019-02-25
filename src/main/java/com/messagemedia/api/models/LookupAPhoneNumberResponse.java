@@ -6,11 +6,14 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class LookupAPhoneNumberResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = 1334659501243468399L;
+    private static final long serialVersionUID = -3282704008572963151L;
     private String countryCode;
     private String phoneNumber;
     private String type;
     private Carrier carrier;
+    private String result;
+    private int imsi;
+    private int location;
     /** GETTER
      * TODO: Write general description for this method
      */
@@ -73,6 +76,54 @@ public class LookupAPhoneNumberResponse
     @JsonSetter("carrier")
     public void setCarrier (Carrier value) { 
         this.carrier = value;
+    }
+ 
+    /** GETTER
+     * TODO: Write general description for this method
+     */
+    @JsonGetter("result")
+    public String getResult ( ) { 
+        return this.result;
+    }
+    
+    /** SETTER
+     * TODO: Write general description for this method
+     */
+    @JsonSetter("result")
+    public void setResult (String value) { 
+        this.result = value;
+    }
+ 
+    /** GETTER
+     * A unique number identifying a GSM subscriber
+     */
+    @JsonGetter("imsi")
+    public int getImsi ( ) { 
+        return this.imsi;
+    }
+    
+    /** SETTER
+     * A unique number identifying a GSM subscriber
+     */
+    @JsonSetter("imsi")
+    public void setImsi (int value) { 
+        this.imsi = value;
+    }
+ 
+    /** GETTER
+     * The location of the mobile number
+     */
+    @JsonGetter("location")
+    public int getLocation ( ) { 
+        return this.location;
+    }
+    
+    /** SETTER
+     * The location of the mobile number
+     */
+    @JsonSetter("location")
+    public void setLocation (int value) { 
+        this.location = value;
     }
  
 }
