@@ -77,39 +77,102 @@ It's easy to get started. Simply enter the API Key and secret you obtained from 
 
 ### Lookup a number
 ```java
-package com.company;
-import com.messagemedia.lookups.*;
-import com.messagemedia.lookups.controllers.LookupsController;
-import com.messagemedia.lookups.http.client.APICallBack;
-import com.messagemedia.lookups.http.client.HttpContext;
-import com.messagemedia.lookups.models.LookupAPhoneNumberResponse;
+package lookupstest.lookupstest;
 
-public class Main {
+import com.messagemedia.api.LookupsClient;
+import com.messagemedia.api.controllers.LookupsController;
+import com.messagemedia.api.http.client.APICallBack;
+import com.messagemedia.api.http.client.HttpContext;
+import com.messagemedia.api.models.LookupAPhoneNumberResponse;
 
-    public static void main(String[] args) {
-	// write your code here
-
-        String authUserName = "YOUR_API_KEY"; // The username to use with authentication
-        String authPassword = "YOUR_API_SECRET"; // The password to use with authentication
-	Boolean hmac = false; //set to true if using HMAC authentication
-
-        MessageMediaLookupsClient client = new MessageMediaLookupsClient(basicAuthUserName, basicAuthPassword);
-
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args )
+    {
+        System.out.println( "Hello World!" );
+        
+        String authUserName = "API_KEY"; // The username to use with authentication
+        String authPassword = "API_SECRET"; // The password to use with authentication
+        Boolean hmac = false; //set to true if using HMAC authentication
+        
+        LookupsClient client = new LookupsClient(authUserName, authPassword, false);
         LookupsController lookups = client.getLookups();
-        String phoneNumber = "YOUR_MOBILE_NUMBER";
+        
+        String phoneNumber = "+614<NUMBER>";
         String options = "carrier,type";
         // Invoking the API call with sample inputs
+        
         lookups.getLookupAPhoneNumberAsync(phoneNumber, options, new APICallBack<LookupAPhoneNumberResponse>() {
+        	
             public void onSuccess(HttpContext context, LookupAPhoneNumberResponse response) {
                 // TODO success callback handler
-                System.out.print(response.getCarrier());
+            	
+            	
+            	System.out.println(response.getCarrier().getName());
+            
             }
             public void onFailure(HttpContext context, Throwable error) {
                 // TODO failure callback handler
-                System.out.print(error);
+            	
+            	System.out.println("error " + error.getMessage());
             }
         });
+          
+    }
+}
+```
 
+### Lookup hlr
+```java
+package lookupstest.lookupstest;
+
+import com.messagemedia.api.LookupsClient;
+import com.messagemedia.api.controllers.LookupsController;
+import com.messagemedia.api.http.client.APICallBack;
+import com.messagemedia.api.http.client.HttpContext;
+import com.messagemedia.api.models.LookupAPhoneNumberResponse;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args )
+    {
+        System.out.println( "Hello World!" );
+        
+        String authUserName = "API_KEY"; // The username to use with authentication
+        String authPassword = "API_SECRET"; // The password to use with authentication
+        Boolean hmac = false; //set to true if using HMAC authentication
+        
+        LookupsClient client = new LookupsClient(authUserName, authPassword, false);
+        LookupsController lookups = client.getLookups();
+        
+        String phoneNumber = "+614<NUMBER>";
+        String options = "hlr";
+        // Invoking the API call with sample inputs
+        
+        lookups.getLookupAPhoneNumberAsync(phoneNumber, options, new APICallBack<LookupAPhoneNumberResponse>() {
+        	
+            public void onSuccess(HttpContext context, LookupAPhoneNumberResponse response) {
+                // TODO success callback handler
+            	
+            	
+            	System.out.println(response.getImsi());
+            
+            }
+            public void onFailure(HttpContext context, Throwable error) {
+                // TODO failure callback handler
+            	
+            	System.out.println("error " + error.getMessage());
+            }
+        });
+          
     }
 }
 ```
