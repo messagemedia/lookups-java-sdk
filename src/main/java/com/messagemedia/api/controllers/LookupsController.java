@@ -21,10 +21,7 @@ public class LookupsController extends BaseController {
     private static final Object syncObject = new Object();
     private static LookupsController instance = null;
 
-    /**
-     * Singleton pattern implementation 
-     * @return The singleton instance of the LookupsController class 
-     */
+
     public static LookupsController getInstance() {
         if (null == instance) {
             synchronized (syncObject) {
@@ -36,56 +33,7 @@ public class LookupsController extends BaseController {
         return instance;
     }
 
-    /**
-     * Use the Lookups API to find information about a phone number.
-     * A request to the lookups API has the following format:
-     * ```/v1/lookups/phone/{phone_number}?options={x}```
-     * where `{x}` is an individual value or a combination of values. 
-     * The `{phone_number}` parameter is a required field and should be set to the phone number to be looked up.
-     * The options query parameter can also be used to request additional information about the phone number.
-     * By default, a request will only return the `country_code` and `phone_number` properties in the response.
-     * ```json
-     * {
-     *   "country_code": "AU",
-     *   "phone_number": "+61491570156",
-     * }
-     * ```
-     * To request details about the the carrier, include `carrier` as a value of the options parameter and to 
-     * request details about the type, include `type` as a value of the options parameter. The `carrier` and
-     * and the `type` values can be used together using a comma separated list, i.e. `carrier,type`.
-     * To request details about the location, include `hlr` as a value of the options parameter. 
-     * NOTE: The `hlr` value CANNOT be used in conjuction with the other values.
-     * A successful request to the lookups endpoint with `carrier` and `type` as values will return a response body as follows:
-     * ```json
-     * {
-     *   "country_code": "AU",
-     *   "phone_number": "+61491570156",
-     *   "type": "mobile",
-     *   "carrier": {
-     *     "name": "Telstra"
-     *   }
-     * }
-     * ```
-     * A successful request to the lookups endpoint with `hlr` as the value will return a response body as follows:
-     * ```json
-     * {
-     *     "result": "OK",
-     *     "imsi": 24008,
-     *     "location": 46
-     * }
-     * ```
-     * Each property in the response body is defined as follows:
-     * - ```country_code``` ISO ALPHA 2 country code of the phone number
-     * - ```phone_number``` E.164 formatted phone number
-     * - ```type``` The type of number. This can be ```"mobile"``` or ```"landline"```
-     * - ```carrier``` Holds information about the specific carrier (if available)
-     *   - ```name``` The carrier's name as reported by the network
-     * - `imsi` A unique number identifying a GSM subscriber
-     * - `location` The location of the mobile number
-     * @param    phoneNumber    Required parameter: The phone number to be looked up
-     * @param    options    Optional parameter: The options query parameter can also be used to request additional information about the phone number.
-     * @return    Returns the LookupAPhoneNumberResponse response from the API call 
-     */
+
     public LookupAPhoneNumberResponse getLookupAPhoneNumber(
                 final String phoneNumber,
                 final String options
@@ -97,56 +45,7 @@ public class LookupsController extends BaseController {
         return callback.getResult();
     }
 
-    /**
-     * Use the Lookups API to find information about a phone number.
-     * A request to the lookups API has the following format:
-     * ```/v1/lookups/phone/{phone_number}?options={x}```
-     * where `{x}` is an individual value or a combination of values. 
-     * The `{phone_number}` parameter is a required field and should be set to the phone number to be looked up.
-     * The options query parameter can also be used to request additional information about the phone number.
-     * By default, a request will only return the `country_code` and `phone_number` properties in the response.
-     * ```json
-     * {
-     *   "country_code": "AU",
-     *   "phone_number": "+61491570156",
-     * }
-     * ```
-     * To request details about the the carrier, include `carrier` as a value of the options parameter and to 
-     * request details about the type, include `type` as a value of the options parameter. The `carrier` and
-     * and the `type` values can be used together using a comma separated list, i.e. `carrier,type`.
-     * To request details about the location, include `hlr` as a value of the options parameter. 
-     * NOTE: The `hlr` value CANNOT be used in conjuction with the other values.
-     * A successful request to the lookups endpoint with `carrier` and `type` as values will return a response body as follows:
-     * ```json
-     * {
-     *   "country_code": "AU",
-     *   "phone_number": "+61491570156",
-     *   "type": "mobile",
-     *   "carrier": {
-     *     "name": "Telstra"
-     *   }
-     * }
-     * ```
-     * A successful request to the lookups endpoint with `hlr` as the value will return a response body as follows:
-     * ```json
-     * {
-     *     "result": "OK",
-     *     "imsi": 24008,
-     *     "location": 46
-     * }
-     * ```
-     * Each property in the response body is defined as follows:
-     * - ```country_code``` ISO ALPHA 2 country code of the phone number
-     * - ```phone_number``` E.164 formatted phone number
-     * - ```type``` The type of number. This can be ```"mobile"``` or ```"landline"```
-     * - ```carrier``` Holds information about the specific carrier (if available)
-     *   - ```name``` The carrier's name as reported by the network
-     * - `imsi` A unique number identifying a GSM subscriber
-     * - `location` The location of the mobile number
-     * @param    phoneNumber    Required parameter: The phone number to be looked up
-     * @param    options    Optional parameter: The options query parameter can also be used to request additional information about the phone number.
-     * @return    Returns the void response from the API call 
-     */
+  
     public void getLookupAPhoneNumberAsync(
                 final String phoneNumber,
                 final String options,

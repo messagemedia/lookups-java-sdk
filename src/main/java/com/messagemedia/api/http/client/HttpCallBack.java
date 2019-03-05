@@ -2,9 +2,7 @@ package com.messagemedia.api.http.client;
 
 import com.messagemedia.api.http.request.HttpRequest;
 
-/**
- * Callback to be called before and after the HTTP call for an endpoint is made 
- */
+
 public interface HttpCallBack {
     /**
      * Callback called just before the HTTP request is sent 

@@ -16,16 +16,12 @@ public class APIException extends Exception {
     //private fields
     private HttpContext httpContext;
 
-    /**
-    * The HTTP response code from the API request
-    */
+ 
     public int getResponseCode() {
         return (httpContext != null) ? httpContext.getResponse().getStatusCode() : -1;
     }
 
-    /**
-     * The HTTP response body from the API request
-     */
+
     public HttpContext getHttpContext() {
         return httpContext;
     }

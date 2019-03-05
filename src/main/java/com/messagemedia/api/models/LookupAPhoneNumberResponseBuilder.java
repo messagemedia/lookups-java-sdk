@@ -6,9 +6,7 @@ public class LookupAPhoneNumberResponseBuilder {
     //the instance to build
     private LookupAPhoneNumberResponse lookupAPhoneNumberResponse;
 
-    /**
-     * Default constructor to initialize the instance
-     */
+ 
     public LookupAPhoneNumberResponseBuilder() {
         lookupAPhoneNumberResponse = new LookupAPhoneNumberResponse();
     }
@@ -38,24 +36,18 @@ public class LookupAPhoneNumberResponseBuilder {
         return this;
     }
 
-    /**
-     * A unique number identifying a GSM subscriber
-     */
+
     public LookupAPhoneNumberResponseBuilder imsi(long imsi) {
         lookupAPhoneNumberResponse.setImsi(imsi);
         return this;
     }
 
-    /**
-     * The location of the mobile number
-     */
+
     public LookupAPhoneNumberResponseBuilder location(int location) {
         lookupAPhoneNumberResponse.setLocation(location);
         return this;
     }
-    /**
-     * Build the instance with the given values
-     */
+
     public LookupAPhoneNumberResponse build() {
         return lookupAPhoneNumberResponse;
     }

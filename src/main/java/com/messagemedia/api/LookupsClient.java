@@ -28,9 +28,7 @@ public class LookupsClient {
         BaseController.setClientInstance(httpClient);
     }
 
-    /**
-     * Client initialization constructor
-     */
+
     public LookupsClient(String authUserName, String authPassword, boolean hmacAuth) {
         if(!hmacAuth)
         {

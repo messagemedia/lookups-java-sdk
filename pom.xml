@@ -8,38 +8,41 @@
   <packaging>jar</packaging>
 
   <name>LookupsLib</name>
+  
+  <description>Java SDK for MessageMedia Lookups API</description>
+  <url>https://github.com/messagemedia/lookups-java-sdk</url>
+  <licenses>
+  	<license>
+  		<name>The MIT License (MIT)</name>
+ 		<url>http://opensource.org/licenses/MIT</url>
+  	</license>
+  </licenses>
+  <developers>
+  	<developer>
+  		<name>Bec Martin</name>
+  		<email>bec.martin@messagemedia.com.au</email>
+  		<organization>MessageMedia</organization>
+  		<organizationUrl>https://messagemedia.com/au/</organizationUrl>
+  	</developer>
+  </developers>
+  <scm>
+  <connection>scm:git:git://github.com/messagemedia/lookups-java-sdk.git</connection>
+  <developerConnection>scm:git:git@github.com:messagemedia/lookups-java-sdk.git</developerConnection>
+  <url>https://github.com/messagemedia/lookups-java-sdk</url>
+  </scm>
+  
+  <distributionManagement>
+  <snapshotRepository>
+    <id>ossrh</id>
+    <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+  </snapshotRepository>
+  <repository>
+    <id>ossrh</id>
+    <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+  </repository>
+</distributionManagement>
 
   <build>
-    <pluginManagement>
-      <plugins>
-        <plugin>
-          <groupId>org.eclipse.m2e</groupId>
-          <artifactId>lifecycle-mapping</artifactId>
-          <version>1.0.0</version>
-          <configuration>
-            <lifecycleMappingMetadata>
-              <pluginExecutions>
-                <pluginExecution>
-                  <pluginExecutionFilter>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-enforcer-plugin</artifactId>
-                    <versionRange>[2.0.0,)</versionRange>
-                    <goals>
-                      <goal>enforce</goal>
-                    </goals>
-                  </pluginExecutionFilter>
-                  <action>
-                    <execute>
-                      <runOnIncremental>true</runOnIncremental>
-                    </execute >
-                  </action>
-                </pluginExecution>
-              </pluginExecutions>
-            </lifecycleMappingMetadata>
-          </configuration>
-        </plugin>
-      </plugins>
-    </pluginManagement>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -62,6 +65,46 @@
           </execution>
         </executions>
       </plugin>
+      <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-source-plugin</artifactId>
+      <version>2.2.1</version>
+      <executions>
+        <execution>
+          <id>attach-sources</id>
+          <goals>
+            <goal>jar-no-fork</goal>
+          </goals>
+        </execution>
+      </executions>
+    </plugin>
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-javadoc-plugin</artifactId>
+      <version>2.9.1</version>
+      <executions>
+        <execution>
+          <id>attach-javadocs</id>
+          <goals>
+            <goal>jar</goal>
+          </goals>
+        </execution>
+      </executions>
+    </plugin>
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-gpg-plugin</artifactId>
+      <version>1.5</version>
+      <executions>
+        <execution>
+          <id>sign-artifacts</id>
+          <phase>verify</phase>
+          <goals>
+            <goal>sign</goal>
+          </goals>
+        </execution>
+      </executions>
+    </plugin>
     </plugins>
   </build>
 
