@@ -154,48 +154,55 @@ public class LookupsController extends BaseController {
     ) {
         Runnable _responseTask = new Runnable() {
             public void run() {
-                //the base uri for api requests
-                String _baseUri = Configuration.baseUri;
+                final HttpRequest _request;
 
-                //prepare query string for API call
-                StringBuilder _queryBuilder = new StringBuilder("/v1/lookups/phone/{phone_number}");
-
-                //process template parameters
-                Map<String, Object> _templateParameters = new HashMap<String, Object>();
-                _templateParameters.put("phone_number", phoneNumber);
-                APIHelper.appendUrlWithTemplateParameters(_queryBuilder, _templateParameters);
-
-                ///process query parameters
-                Map<String, Object> _queryParameters = new HashMap<String, Object>();
-                if (options != null) {
-                    _queryParameters.put("options", options);
-                }
-                APIHelper.appendUrlWithQueryParameters(_queryBuilder, _queryParameters);
-
-                //validate and preprocess url
-                String _queryUrl = APIHelper.cleanUrl(new StringBuilder(_baseUri).append(_queryBuilder));
-
-                //load all headers for the outgoing API request
-                Map<String, String> _headers = new HashMap<String, String>();
-                _headers.put("user-agent", BaseController.userAgent);
-                _headers.put("accept", "application/json");
-
-
-                //prepare and invoke the API call request to fetch the response
-                final HttpRequest _request = getClientInstance().get(_queryUrl, _headers, null);
-
-                //invoke the callback before request if its not null
-                if (getHttpCallBack() != null)
-                {
-                    getHttpCallBack().OnBeforeRequest(_request);
-                }
-
-                //apply basic or hmac-based auth
                 try {
-                    AuthManager.apply(_queryBuilder.toString(), _request.getHeaders());
-                } catch (Exception exception) {
-                    //let the caller know of the error
-                    callBack.onFailure(null, exception);
+                    //the base uri for api requests
+                    String _baseUri = Configuration.baseUri;
+
+                    //prepare query string for API call
+                    StringBuilder _queryBuilder = new StringBuilder("/v1/lookups/phone/{phone_number}");
+
+                    //process template parameters
+                    Map<String, Object> _templateParameters = new HashMap<String, Object>();
+                    _templateParameters.put("phone_number", phoneNumber);
+                    APIHelper.appendUrlWithTemplateParameters(_queryBuilder, _templateParameters);
+
+                    ///process query parameters
+                    Map<String, Object> _queryParameters = new HashMap<String, Object>();
+                    if (options != null) {
+                        _queryParameters.put("options", options);
+                    }
+                    APIHelper.appendUrlWithQueryParameters(_queryBuilder, _queryParameters);
+
+                    //validate and preprocess url
+                    String _queryUrl = APIHelper.cleanUrl(new StringBuilder(_baseUri).append(_queryBuilder));
+
+                    //load all headers for the outgoing API request
+                    Map<String, String> _headers = new HashMap<String, String>();
+                    _headers.put("user-agent", BaseController.userAgent);
+                    _headers.put("accept", "application/json");
+
+
+                    //prepare and invoke the API call request to fetch the response
+                    _request = getClientInstance().get(_queryUrl, _headers, null);
+
+                    //invoke the callback before request if its not null
+                    if (getHttpCallBack() != null) {
+                        getHttpCallBack().OnBeforeRequest(_request);
+                    }
+
+                    //apply basic or hmac-based auth
+                    try {
+                        AuthManager.apply(_queryBuilder.toString(), _request.getHeaders());
+                    } catch (Exception exception) {
+                        //let the caller know of the error
+                        callBack.onFailure(null, exception);
+                        return;
+                    }
+
+                } catch (Throwable e) {
+                    callBack.onFailure(null, e);
                     return;
                 }
 
@@ -205,8 +212,7 @@ public class LookupsController extends BaseController {
                         try {
 
                             //invoke the callback after response if its not null
-                            if (getHttpCallBack() != null)	
-                            {
+                            if (getHttpCallBack() != null) {
                                 getHttpCallBack().OnAfterResponse(_context);
                             }
 
@@ -225,12 +231,6 @@ public class LookupsController extends BaseController {
 
                             //let the caller know of the success
                             callBack.onSuccess(_context, _result);
-                        } catch (APIException error) {
-                            //let the caller know of the error
-                            callBack.onFailure(_context, error);
-                        } catch (IOException ioException) {
-                            //let the caller know of the caught IO Exception
-                            callBack.onFailure(_context, ioException);
                         } catch (Exception exception) {
                             //let the caller know of the caught Exception
                             callBack.onFailure(_context, exception);
@@ -239,7 +239,7 @@ public class LookupsController extends BaseController {
                     public void onFailure(HttpContext _context, Throwable _error) {
                         //invoke the callback after response if its not null
                         if (getHttpCallBack() != null)
-                        {
+ {
                             getHttpCallBack().OnAfterResponse(_context);
                         }
 

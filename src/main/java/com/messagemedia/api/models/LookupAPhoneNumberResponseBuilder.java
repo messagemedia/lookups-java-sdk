@@ -41,7 +41,7 @@ public class LookupAPhoneNumberResponseBuilder {
     /**
      * A unique number identifying a GSM subscriber
      */
-    public LookupAPhoneNumberResponseBuilder imsi(int imsi) {
+    public LookupAPhoneNumberResponseBuilder imsi(long imsi) {
         lookupAPhoneNumberResponse.setImsi(imsi);
         return this;
     }

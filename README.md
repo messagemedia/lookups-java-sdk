@@ -67,7 +67,7 @@ Use the following dependency in your project to grab via Maven:
 <dependency>
     <groupId>com.messagemedia.sdk</groupId>
     <artifactId>lookups</artifactId>
-    <version>1.0.0</version>
+    <version>2.0.0</version>
 </dependency>
 
 ```
@@ -89,39 +89,39 @@ import com.messagemedia.api.models.LookupAPhoneNumberResponse;
  * Hello world!
  *
  */
-public class App 
+public class App
 {
     public static void main( String[] args )
     {
         System.out.println( "Hello World!" );
-        
+
         String authUserName = "API_KEY"; // The username to use with authentication
         String authPassword = "API_SECRET"; // The password to use with authentication
         Boolean hmac = false; //set to true if using HMAC authentication
-        
+
         LookupsClient client = new LookupsClient(authUserName, authPassword, false);
         LookupsController lookups = client.getLookups();
-        
+
         String phoneNumber = "+614<NUMBER>";
         String options = "carrier,type";
         // Invoking the API call with sample inputs
-        
+
         lookups.getLookupAPhoneNumberAsync(phoneNumber, options, new APICallBack<LookupAPhoneNumberResponse>() {
-        	
+
             public void onSuccess(HttpContext context, LookupAPhoneNumberResponse response) {
                 // TODO success callback handler
-            	
-            	
+
+
             	System.out.println(response.getCarrier().getName());
-            
+
             }
             public void onFailure(HttpContext context, Throwable error) {
                 // TODO failure callback handler
-            	
+
             	System.out.println("error " + error.getMessage());
             }
         });
-          
+
     }
 }
 ```
@@ -140,39 +140,39 @@ import com.messagemedia.api.models.LookupAPhoneNumberResponse;
  * Hello world!
  *
  */
-public class App 
+public class App
 {
     public static void main( String[] args )
     {
         System.out.println( "Hello World!" );
-        
+
         String authUserName = "API_KEY"; // The username to use with authentication
         String authPassword = "API_SECRET"; // The password to use with authentication
         Boolean hmac = false; //set to true if using HMAC authentication
-        
+
         LookupsClient client = new LookupsClient(authUserName, authPassword, false);
         LookupsController lookups = client.getLookups();
-        
+
         String phoneNumber = "+614<NUMBER>";
         String options = "hlr";
         // Invoking the API call with sample inputs
-        
+
         lookups.getLookupAPhoneNumberAsync(phoneNumber, options, new APICallBack<LookupAPhoneNumberResponse>() {
-        	
+
             public void onSuccess(HttpContext context, LookupAPhoneNumberResponse response) {
                 // TODO success callback handler
-            	
-            	
+
+
             	System.out.println(response.getImsi());
-            
+
             }
             public void onFailure(HttpContext context, Throwable error) {
                 // TODO failure callback handler
-            	
+
             	System.out.println("error " + error.getMessage());
             }
         });
-          
+
     }
 }
 ```

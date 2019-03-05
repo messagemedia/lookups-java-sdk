@@ -6,13 +6,13 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 
 public class LookupAPhoneNumberResponse 
         implements java.io.Serializable {
-    private static final long serialVersionUID = -3282704008572963151L;
+    private static final long serialVersionUID = -3282649719022236652L;
     private String countryCode;
     private String phoneNumber;
     private String type;
     private Carrier carrier;
     private String result;
-    private int imsi;
+    private long imsi;
     private int location;
     /** GETTER
      * TODO: Write general description for this method
@@ -98,7 +98,7 @@ public class LookupAPhoneNumberResponse
      * A unique number identifying a GSM subscriber
      */
     @JsonGetter("imsi")
-    public int getImsi ( ) { 
+    public long getImsi ( ) { 
         return this.imsi;
     }
     
@@ -106,7 +106,7 @@ public class LookupAPhoneNumberResponse
      * A unique number identifying a GSM subscriber
      */
     @JsonSetter("imsi")
-    public void setImsi (int value) { 
+    public void setImsi (long value) { 
         this.imsi = value;
     }
  
